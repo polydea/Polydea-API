@@ -1,6 +1,6 @@
 {
-    "name": "todolist-api",
-    "description": "Simple todolist api for personal usage",
+    "name": "Polydea/API",
+    "description": "Polydea website api",
     "authors": [
         {
             "name": "Thomas Sanlis",

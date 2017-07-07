@@ -18,9 +18,9 @@ use OAuth2\Storage;
 use OAuth2\GrantType;
 
 // Var initialisation
-$dsn = 'mysql:host=localhost;dbname=todo;charset=utf8';
+$dsn = 'mysql:host=localhost;dbname=polydea_api;charset=utf8';
 $usr = 'root';
-$pwd = '578745';
+$pwd = 'root';
 
 $pdo = new \Slim\PDO\Database($dsn, $usr, $pwd);
 $storage = new Storage\Pdo($pdo);
