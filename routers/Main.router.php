@@ -23,12 +23,10 @@ $app->get('/services', function () use ($app) {
     $services = new Services();
     $data = $services->getServices();
     return json_encode($data);
-// })->add($authorization);
-});
+})->add($authorization);
 
 $app->get('/users', function () use ($app) {
     $users = new Users();
     $data = $users->getUsers();
     return json_encode($data);
-// })->add($authorization);
-});
+})->add($authorization);
