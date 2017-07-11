@@ -30,3 +30,9 @@ $app->get('/users', function () use ($app) {
     $data = $users->getUsers();
     return json_encode($data);
 })->add($authorization);
+
+$app->get('/user/{id}', function ($id) use ($app) {
+    $users = new Users();
+    $data = $users->getUser($id);
+    return json_encode($data);
+})->add($authorization);

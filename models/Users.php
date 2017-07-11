@@ -12,7 +12,7 @@ class Users
         $this->core = Core::getInstance();
     }
 
-    // Get Tasks
+    // Get Users
     public function getUsers()
     {
         global $pdo;
@@ -20,6 +20,27 @@ class Users
 
         $selectStatement = $pdo->select()
         ->from('users');
+
+        if ($stmt = $selectStatement->execute()) {
+            $data = $stmt->fetchAll();
+        } else {
+            $data = 0;
+        }
+        return $data;
+    }
+
+    // Get user
+    public function getUser($id)
+    {
+        $route = $id->getAttribute('route');
+        $id = $route->getArgument('id');
+
+        global $pdo;
+        $data = array();
+
+        $selectStatement = $pdo->select()
+        ->from('users')
+        ->where('ID', '=', $id);
 
         if ($stmt = $selectStatement->execute()) {
             $data = $stmt->fetchAll();
