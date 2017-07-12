@@ -57,7 +57,7 @@ $app->map(['GET', 'POST'], Routes\ReceiveCode::ROUTE, new Routes\ReceiveCode($re
 $authorization = new Middleware\Authorization($server, $app->getContainer());
 
 // $user = "thomas";
-// $hash = password_hash("password", PASSWORD_DEFAULT);
+// $hash = hash('sha256', 'password');
 
 // $status = $pdo->exec(
 //     "INSERT INTO users (username, password) VALUES ('{$user}', '{$hash}')"

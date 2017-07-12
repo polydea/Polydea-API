@@ -30,7 +30,7 @@ class Users
     }
 
     // Get user
-    public function getUser($username)
+    public function getUser($username, $password)
     {
         $route = $username->getAttribute('route');
         $username = $route->getArgument('username');
