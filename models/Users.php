@@ -30,17 +30,17 @@ class Users
     }
 
     // Get user
-    public function getUser($id)
+    public function getUser($username)
     {
-        $route = $id->getAttribute('route');
-        $id = $route->getArgument('id');
+        $route = $username->getAttribute('route');
+        $username = $route->getArgument('username');
 
         global $pdo;
         $data = array();
 
         $selectStatement = $pdo->select()
         ->from('users')
-        ->where('ID', '=', $id);
+        ->where('username', '=', $username);
 
         if ($stmt = $selectStatement->execute()) {
             $data = $stmt->fetchAll();
