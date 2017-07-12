@@ -34,19 +34,15 @@ class Users
     {
         $route = $username->getAttribute('route');
         $username = $route->getArgument('username');
+        $password = $route->getArgument('password');
+        $password = hash('sha256', $password);
 
         global $pdo;
-        $data = array();
 
-        $selectStatement = $pdo->select()
-        ->from('users')
-        ->where('username', '=', $username);
+        $selectStatement = $pdo->query("SELECT * FROM users WHERE username = '$username' AND password = '$password'");
 
-        if ($stmt = $selectStatement->execute()) {
-            $data = $stmt->fetchAll();
-        } else {
-            $data = 0;
-        }
+        $data = $selectStatement->fetchAll();
+        
         return $data;
     }
 

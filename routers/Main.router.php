@@ -31,7 +31,7 @@ $app->get('/users', function () use ($app) {
     return json_encode($data);
 })->add($authorization);
 
-$app->get('/user/{username}/{password}', function ($username, $password) use ($app) {
+$app->get('/user[/{username}[/{password}]]', function ($username, $password) use ($app) {
     $user = new Users();
 
     $data = $user->getUser($username, $password);
